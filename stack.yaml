@@ -1,0 +1,14 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://91.99.16.71:31112 
+functions:
+  generate-password:
+    lang: dockerfile
+    handler: ./generate-password
+    image: goujetp/generate-password:latest # <--- Mets ton pseudo Docker Hub ici !
+    secrets:
+      - db-credentials-password
+      - db-credentials-username
+    environment:
+      POSTGRES_HOST: postgres.default.svc.cluster.local
