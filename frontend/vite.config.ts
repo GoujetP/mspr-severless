@@ -9,7 +9,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://91.99.16.71:31112',
+        target: 'https://openfaas.91.99.16.71.nip.io',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
         configure: (proxy, _options) => {

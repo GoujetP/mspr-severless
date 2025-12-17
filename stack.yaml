@@ -1,7 +1,7 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://91.99.16.71:31112 
+  gateway: https://openfaas.91.99.16.71.nip.io 
 functions:
   generate-password:
     lang: dockerfile

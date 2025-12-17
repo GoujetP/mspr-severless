@@ -5,7 +5,7 @@
 Le proxy Vite est déjà configuré dans `frontend/vite.config.ts`. Il permet de contourner les problèmes CORS en développement en redirigeant les requêtes via le serveur de développement.
 
 **Utilisation :**
-- En développement (`npm run dev`), les requêtes vers `/api/*` sont automatiquement proxyfiées vers `http://91.99.16.71:31112`
+- En développement (`npm run dev`), les requêtes vers `/api/*` sont automatiquement proxyfiées vers `https://openfaas.91.99.16.71.nip.io`
 - Les en-têtes CORS sont ajoutés automatiquement avec wildcard (`*`)
 
 ## Solution 2 : Configuration CORS côté OpenFaaS (Production)

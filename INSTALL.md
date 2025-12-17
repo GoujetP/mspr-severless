@@ -92,7 +92,7 @@ k3s kubectl -n openfaas get pods
 
 ## Accès 
 
-- OpenFaas : http://91.99.16.71:31112/ui/
+- OpenFaas : https://openfaas.91.99.16.71.nip.io/ui/
 - Api Kube : http://91.99.16.71:6443/api
 
 ## PostgreSQL 

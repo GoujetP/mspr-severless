@@ -21,7 +21,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://91.99.16.71:31112/function/generate-password",
+					"raw": "https://openfaas.91.99.16.71.nip.io/function/generate-password",
 					"protocol": "http",
 					"host": [
 						"91",
@@ -53,7 +53,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://91.99.16.71:31112/function/generate-2fa",
+					"raw": "https://openfaas.91.99.16.71.nip.io/function/generate-2fa",
 					"protocol": "http",
 					"host": [
 						"91",
@@ -85,7 +85,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://91.99.16.71:31112/function/generate-2fa",
+					"raw": "https://openfaas.91.99.16.71.nip.io/function/generate-2fa",
 					"protocol": "http",
 					"host": [
 						"91",

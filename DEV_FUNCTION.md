@@ -137,7 +137,7 @@ Configuration stack.yaml :
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://91.99.16.71:31112 
+  gateway: https://openfaas.91.99.16.71.nip.io 
 functions:
   generate-password:
     lang: dockerfile
@@ -207,7 +207,7 @@ faas-cli deploy -f stack.yaml
 ## Utilisation de la fonction generate-password 
 
 ```curl
-curl --location 'http://91.99.16.71:31112/function/generate-password' \
+curl --location 'https://openfaas.91.99.16.71.nip.io/function/generate-password' \
 --header 'Content-Type: application/json' \
 --data '{
     "username": "Pierre Goujet"
@@ -406,7 +406,7 @@ faas-cli deploy -f stack.yaml
 
 La requête POST :
 ```
-curl --location 'http://91.99.16.71:31112/function/generate-2fa' \
+curl --location 'https://openfaas.91.99.16.71.nip.io/function/generate-2fa' \
 --header 'Content-Type: application/json' \
 --data '{
     "username": "Pierre Goujet"

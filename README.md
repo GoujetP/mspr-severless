@@ -2,7 +2,7 @@
 
 ## Liste des accès 
 
-- OpenFaas : http://91.99.16.71:31112/ui/ 
+- OpenFaas : https://openfaas.91.99.16.71.nip.io/ui/ 
     - User : admin
     - Password : Dans le secret.properties
 
