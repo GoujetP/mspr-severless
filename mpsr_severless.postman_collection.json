@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "b0701462-52f5-4cfb-803c-2f6f40fac996",
+		"name": "mpsr_severless",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26972135"
+	},
+	"item": [
+		{
+			"name": "generate_password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"User_test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://91.99.16.71:31112/function/generate-password",
+					"protocol": "http",
+					"host": [
+						"91",
+						"99",
+						"16",
+						"71"
+					],
+					"port": "31112",
+					"path": [
+						"function",
+						"generate-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate_2fa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"User_test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://91.99.16.71:31112/function/generate-2fa",
+					"protocol": "http",
+					"host": [
+						"91",
+						"99",
+						"16",
+						"71"
+					],
+					"port": "31112",
+					"path": [
+						"function",
+						"generate-2fa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"User_test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://91.99.16.71:31112/function/generate-2fa",
+					"protocol": "http",
+					"host": [
+						"91",
+						"99",
+						"16",
+						"71"
+					],
+					"port": "31112",
+					"path": [
+						"function",
+						"generate-2fa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

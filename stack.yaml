@@ -22,3 +22,13 @@ functions:
       - encryption-key
     environment:
       POSTGRES_HOST: postgres.default.svc.cluster.local
+  auth-user:
+    lang: dockerfile
+    handler: ./auth-user
+    image: goujetp/auth-user:latest
+    secrets:
+      - db-credentials-password
+      - db-credentials-username
+      - encryption-key
+    environment:
+      POSTGRES_HOST: postgres.default.svc.cluster.local
