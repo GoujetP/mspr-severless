@@ -1,0 +1,7 @@
+template
+build
+.secrets
+k3s-config.yaml
+.env
+__pycache__/
+*.pyc

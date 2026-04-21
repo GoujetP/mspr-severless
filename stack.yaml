@@ -1,0 +1,37 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8081
+functions:
+  generate-password:
+    lang: dockerfile
+    handler: ./generate-password
+    image: goujetp/generate-password:latest
+    secrets:
+      - db-password
+      - db-username
+    environment:
+      POSTGRES_HOST: postgres.cofrap.svc.cluster.local
+
+  generate-2fa:
+    lang: dockerfile
+    handler: ./generate-2fa
+    image: goujetp/generate-2fa:latest
+    secrets:
+      - db-password
+      - db-username
+      - encryption-key
+    environment:
+      POSTGRES_HOST: postgres.cofrap.svc.cluster.local
+
+  auth-user:
+    lang: dockerfile
+    handler: ./auth-user
+    image: goujetp/auth-user:latest
+    secrets:
+      - db-password
+      - db-username
+      - encryption-key
+    environment:
+      POSTGRES_HOST: postgres.cofrap.svc.cluster.local
+
