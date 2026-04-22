@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: openfaas-gateway-ingress
+  namespace: openfaas
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    # On lie le middleware CORS que tu as créé juste avant
+    traefik.ingress.kubernetes.io/router.middlewares: openfaas-openfaas-cors@kubernetescrd
+spec:
+  rules:
+  - host: vps-pgoujet.duckdns.org # <--- Remplace bien ici
+    http:
+      paths:
+      - path: /                # <--- Le tiret est crucial ici
+        pathType: Prefix
+        backend:
+          service:
+            name: gateway
+            port:
+              number: 8080

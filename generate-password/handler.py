@@ -10,7 +10,14 @@ import psycopg2
 from bcrypt import hashpw, gensalt
 
 # --- Fonctions Utilitaires ---
+if __name__ == "__main__":
+    # Récupérer la méthode HTTP (OpenFaaS la passe via une variable d'env)
+    method = os.getenv("Http_Method", "POST")
 
+    if method == "OPTIONS":
+        # On répond direct un succès pour le CORS
+        print(json.dumps({"status": "CORS_OK"}))
+        sys.exit(0)
 def get_db_connection():
     with open("/var/openfaas/secrets/db-password", "r") as f:
         password = f.read().strip()

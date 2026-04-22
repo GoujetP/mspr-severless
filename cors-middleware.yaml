@@ -1,0 +1,19 @@
+apiVersion: traefik.io/v1alpha1 # Modification ici
+kind: Middleware
+metadata:
+  name: openfaas-cors
+  namespace: openfaas
+spec:
+  headers:
+    accessControlAllowMethods:
+      - "GET"
+      - "POST"
+      - "OPTIONS"
+    accessControlAllowOriginList:
+      - "*"
+    accessControlMaxAge: 100
+    accessControlAllowHeaders:
+      - "Content-Type"
+      - "Authorization"
+      - "X-Requested-With"
+    accessControlAllowCredentials: true
