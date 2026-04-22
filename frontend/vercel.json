@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {      
+        "source": "/api/:path*",
+        "destination": "https://openfaas.91.99.16.71.nip.io/:path*"
+      }
+    ]
+  }
+   
