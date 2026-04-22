@@ -40,17 +40,31 @@ class ApiService {
   async generatePassword(
     request: GeneratePasswordRequest
   ): Promise<GeneratePasswordResponse> {
-    return this.request<GeneratePasswordResponse>(API_ENDPOINTS.GENERATE_PASSWORD, {
+    const data = await this.request<GeneratePasswordResponse>(API_ENDPOINTS.GENERATE_PASSWORD, {
       method: 'POST',
       body: JSON.stringify(request),
     });
+
+    return {
+      ...data,
+      message: data.message || 'Mot de passe genere avec succes',
+    };
   }
 
   async generate2FA(request: Generate2FARequest): Promise<Generate2FAResponse> {
-    return this.request<Generate2FAResponse>(API_ENDPOINTS.GENERATE_2FA, {
+    const data = await this.request<Generate2FAResponse>(API_ENDPOINTS.GENERATE_2FA, {
       method: 'POST',
       body: JSON.stringify(request),
     });
+
+    const qrCode = data.qr_code_2fa_base64 || data.qr_code_2fa;
+
+    return {
+      ...data,
+      qr_code_2fa: data.qr_code_2fa || qrCode,
+      qr_code_2fa_base64: qrCode,
+      message: data.message || '2FA active avec succes',
+    };
   }
 
   async authUser(request: AuthUserRequest): Promise<AuthUserResponse> {

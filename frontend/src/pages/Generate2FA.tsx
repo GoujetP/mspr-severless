@@ -77,38 +77,46 @@ export const Generate2FA = () => {
                 title="QR Code Google Authenticator"
               />
               
-              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <label className="text-sm font-medium text-gray-700">
-                    Clé d'entrée manuelle
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => setShowManualKey(!showManualKey)}
-                    className="text-sm text-primary-600 hover:text-primary-700 font-medium"
-                  >
-                    {showManualKey ? 'Masquer' : 'Afficher'}
-                  </button>
-                </div>
-                {showManualKey && (
-                  <div className="flex items-center gap-2 mt-2">
-                    <code className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded text-sm font-mono">
-                      {response.manual_entry_key}
-                    </code>
-                    <Button
+              {response.manual_entry_key ? (
+                <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-sm font-medium text-gray-700">
+                      Clé d'entrée manuelle
+                    </label>
+                    <button
                       type="button"
-                      variant="secondary"
-                      onClick={() => copyToClipboard(response.manual_entry_key)}
-                      className="px-4 py-2"
+                      onClick={() => setShowManualKey(!showManualKey)}
+                      className="text-sm text-primary-600 hover:text-primary-700 font-medium"
                     >
-                      Copier
-                    </Button>
+                      {showManualKey ? 'Masquer' : 'Afficher'}
+                    </button>
                   </div>
-                )}
-                <p className="text-xs text-gray-600 mt-2">
-                  Utilisez cette clé si vous ne pouvez pas scanner le QR code
-                </p>
-              </div>
+                  {showManualKey && (
+                    <div className="flex items-center gap-2 mt-2">
+                      <code className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded text-sm font-mono">
+                        {response.manual_entry_key}
+                      </code>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => copyToClipboard(response.manual_entry_key!)}
+                        className="px-4 py-2"
+                      >
+                        Copier
+                      </Button>
+                    </div>
+                  )}
+                  <p className="text-xs text-gray-600 mt-2">
+                    Utilisez cette clé si vous ne pouvez pas scanner le QR code
+                  </p>
+                </div>
+              ) : (
+                <div className="mt-6">
+                  <Alert type="info">
+                    La version actuelle du backend ne renvoie pas de clé manuelle. Utilisez le QR code pour l'enrollement.
+                  </Alert>
+                </div>
+              )}
 
               <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                 <p className="text-sm text-blue-800">

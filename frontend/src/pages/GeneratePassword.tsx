@@ -64,6 +64,9 @@ export const GeneratePassword = () => {
             <Alert type="success">
               {response.message}
             </Alert>
+            <p className="text-sm text-gray-700">
+              Le mot de passe : <strong>{response.password}</strong>
+            </p>
             <div className="pt-4 border-t border-gray-200">
               <QRCode
                 data={response.qr_code_base64}
